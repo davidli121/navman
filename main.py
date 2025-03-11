@@ -31,7 +31,7 @@ def onExit():
     adminPwd(2)
 
 def makePurchasePanel():
-    pass
+    tkmb.showwarning("Not implemented", "This panel has not yet been implemented.", detail="If you have any comments or feedback, email them to dav.li2016@hotmail.com")
 
 def kioskPanel():
     processWindow = tk.Toplevel(root)
@@ -74,7 +74,7 @@ def kioskPanel():
     thenavbankimgtklbl.pack(padx=10, pady=10, fill="x", expand=True, side=tk.TOP)
     
     cbalancebtn = tk.Button(root, text="Check Balance", font=fontconfig["kioskbuttonfont"])
-    pbutton = tk.Button(root, text="Make Purchase", font=fontconfig["kioskbuttonfont"])
+    pbutton = tk.Button(root, text="Make Purchase", font=fontconfig["kioskbuttonfont"], command=makePurchasePanel)
     mbutton = tk.Button(root, text="Manage Account", font=fontconfig["kioskbuttonfont"])
     minbutton = ttk.Button(root, text="Hide", command=lambda: root.iconify())
 
