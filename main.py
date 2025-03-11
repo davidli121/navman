@@ -3,9 +3,6 @@ import sys
 import time
 import tkinter as tk
 import tkinter.ttk as ttk
-import threading
-import queue
-import traceback
 import json
 import bcrypt
 import tkinter.messagebox as tkmb
