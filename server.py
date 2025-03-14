@@ -7,10 +7,10 @@ import webbrowser
 import os
 import requests
 import json
+from urllib.parse import urlparse, parse_qs
 
 
 def load_firebase_config():
-    """Loads Firebase configuration from dedede.json."""
     try:
         script_dir = os.path.dirname(os.path.abspath(__file__))
         file_path = os.path.join(script_dir, "resources", "dedede.json")
@@ -37,23 +37,30 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             if os.path.exists("pg/index.html"):
                 self.path = "pg/index.html"
         elif self.path.startswith("/firebase"):
-            self.firebaseHandler
+            parsed_url = urlparse(self.path)
+            query_params = parse_qs(parsed_url.query)
+            action = query_params.get("action", [None])[0]
             return
         return http.server.SimpleHTTPRequestHandler.do_GET(self)
     
     def firebaseHandler(self):
-        pass
+        def get_data(path):
+            url = f"{DATABASE_URL}{path}.json"
+            response = requests.get(url)
+            if response.status_code == 200:
+                return response.json()
+            else:
+                print(f"Error: {response.status_code}")
+                return None
 
 def run_server(port):
-    """Starts the local HTTP server."""
     Handler = MyHandler
     with socketserver.TCPServer(("", port), Handler) as httpd:
         httpd.serve_forever()
 
 
 def main():
-    """Main function to start the server, display the address, and handle shutdown."""
-    port = 8000  # You can change this port number
+    port = 1288
     server_thread = threading.Thread(target=run_server, args=(port,))
     server_thread.daemon = True
     server_thread.start()
@@ -73,7 +80,6 @@ def main():
     webbrowser.open(url)
 
     def on_closing():
-        """Stops the server and closes the window."""
         root.destroy()
         os._exit(0)
 
