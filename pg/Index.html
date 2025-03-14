@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">Navratil Creator Manager</title>
+    <script type="importmap">
+        {
+          "imports": {
+            "@material/web/": "https://esm.run/@material/web/"
+          }
+        }
+      </script>
+    <script type="module">
+        import '@material/web/all.js';
+        import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles.js';
+
+        document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
+</head>
+
+<body>
+    <center>
+        <img src="resources/thenavbank.png">
+        <div style="position: fixed; bottom: 0; width: 100%; padding: 10px">
+            <md-filled-button class="mainbutton">Hello</md-filled-button>
+        </div>
+    </center>
+</body>
+
+</html>
