@@ -2,32 +2,46 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="title">Navratil Creator Manager</title>
-    <script type="importmap">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="title">Navratil Creator Manager</title>
+  <script type="importmap">
         {
           "imports": {
             "@material/web/": "https://esm.run/@material/web/"
           }
         }
       </script>
-    <script type="module">
-        import '@material/web/all.js';
-        import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles.js';
+  <script type="module">
+    import '@material/web/all.js';
+    import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles.js';
 
-        document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
-    </script>
-    <link rel="stylesheet" href="/pg/style.css">
+    document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+  </script>
+  <link rel="stylesheet" href="/pg/style.css">
 </head>
 
-<body>
+<body id="body">
+  <div hidden id="loginscreen">
     <center>
-        <img src="resources/thenavbank.png", class="mimg">
-        <div style="position: fixed; bottom: 0; width: 100%; padding: 10px">
-            <md-filled-tonal-button class="mainbutton">Start</md-filled-tonal-button>
-        </div>
+      <img src="resources/thenavbank.png" , class="mimg">
+      <div style="position: fixed; bottom: 0; width: 100%; padding: 10px">
+        <h1>Please log in</h1>
+        <md-outlined-text-field label="Username/UID" class="lin"></md-outlined-text-field><br>
+        <md-outlined-text-field label="Password" class="lin" type="password"></md-outlined-text-field>
+        <md-filled-tonal-button class="mainbutton">Done</md-filled-tonal-button>
+      </div>
     </center>
+  </div>
+  <div id="startsc">
+    <center>
+      <img src="resources/thenavbank.png" , class="mimg">
+      <div style="position: fixed; bottom: 0; width: 100%; padding: 10px">
+        <md-filled-tonal-button class="mainbutton" onclick="startdone()">Start</md-filled-tonal-button>
+      </div>
+    </center>
+  </div>
+  <script src="/pg/main.js"></script>
 </body>
 
 </html>

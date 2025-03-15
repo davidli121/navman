@@ -40,7 +40,8 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             parsed_url = urlparse(self.path)
             query_params = parse_qs(parsed_url.query)
             action = query_params.get("action", [None])[0]
-            return
+            if action == "fget":
+                pass
         return http.server.SimpleHTTPRequestHandler.do_GET(self)
     
     def firebaseHandler(self):
@@ -60,7 +61,7 @@ def run_server(port):
 
 
 def main():
-    port = 1288
+    port = 42688
     server_thread = threading.Thread(target=run_server, args=(port,))
     server_thread.daemon = True
     server_thread.start()

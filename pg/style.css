@@ -1,9 +1,21 @@
-.mainbutton{
+:root {
+    --md-filled-text-field-container-shape: 0px;
+    --md-sys-typescale-body-large: 400 1rem system-ui;
+    --md-sys-color-primary: #006a6a;
+    --md-sys-color-surface-container-highest: #e0e3e2;
+    --md-filled-text-field-label-text-color: #3f4948;
+    --md-filled-text-field-input-text-color: #161d1d;
+    --md-outlined-text-field-input-text-font: var(--md-sys-typescale-body-large);
+}
+
+.mainbutton {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: x-large;
     width: 90%;
 }
-.mimg{
-    width: 95%;
-    height: 50%
+
+.lin {
+    width: 90%;
+    padding: 10px;
+    font: var(--md-sys-typescale-body-large);
 }
